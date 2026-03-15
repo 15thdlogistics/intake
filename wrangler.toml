@@ -7,13 +7,13 @@ compatibility_date = "2024-03-01"
 [[d1_databases]]
 binding = "audit_logs"
 database_name = "wings-db"
-database_id = "YOUR_DATABASE_ID"
+database_id = "c2e493c8-2757-4acc-8b32-b12e0723b5bb"
 
 # 2. Mission Cache (KV)
 # Replace 'YOUR_NAMESPACE_ID' with the ID from: npx wrangler kv:namespace create MISSION_CACHE
 [[kv_namespaces]]
 binding = "MISSION_CACHE"
-id = "YOUR_NAMESPACE_ID"
+id = "c2e493c8-2757-4acc-8b32-b12e0723b5bb"
 
 # 3. Internal Service Bindings
 # These allow the Intake worker to talk to your other workers directly
