@@ -1,0 +1,31 @@
+name = "15dwings"
+main = "src/index.js"
+compatibility_date = "2024-03-01"
+
+# 1. Database Binding (D1)
+# Replace 'YOUR_DATABASE_ID' with the ID from: npx wrangler d1 create wings-db
+[[d1_databases]]
+binding = "audit_logs"
+database_name = "wings-db"
+database_id = "YOUR_DATABASE_ID"
+
+# 2. Mission Cache (KV)
+# Replace 'YOUR_NAMESPACE_ID' with the ID from: npx wrangler kv:namespace create MISSION_CACHE
+[[kv_namespaces]]
+binding = "MISSION_CACHE"
+id = "YOUR_NAMESPACE_ID"
+
+# 3. Internal Service Bindings
+# These allow the Intake worker to talk to your other workers directly
+[[services]]
+binding = "noreply-wings"
+service = "wings-mail-worker"
+
+[vars]
+ENVIRONMENT = "production"
+# Add your Google AI Key here or via: npx wrangler secret put AI_API_KEY
+# AI_API_KEY = "..."
+
+# 4. Global Observability
+[observability]
+enabled = true
